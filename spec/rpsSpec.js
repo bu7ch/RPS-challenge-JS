@@ -34,4 +34,16 @@ describe('Rock-Paper-Scissors::', function() {
       });
     });
   });
+  describe('scissors', function() {
+      it('should beat paper', function() {
+        player_1.picks('scissors');
+        player_2.picks('paper');
+        expect(game.winner()).toBe(player_1);
+      });
+      it('should lose to rock', function() {
+        player_1.picks('scissors');
+        player_2.picks('rock');
+        expect(game.winner()).toBe(player_2);
+      });
+    });
 });
