@@ -16,7 +16,12 @@ Game.prototype.PAIRS = {
 	scissors: {beats: 'paper'}
 };
 
+Game.prototype._isSamePick = function() {
+	return this.player_1.pick === this.player_2.pick;
+};
+
 Game.prototype.winner = function() {
+  if (this._isSamePick()) return null;
 	if (this.PAIRS[this.player_1.pick]['beats'] === this.player_2.pick) {
 		return this.player_1;
 	} else {

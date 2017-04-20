@@ -46,4 +46,16 @@ describe('Rock-Paper-Scissors::', function() {
         expect(game.winner()).toBe(player_2);
       });
     });
+    describe('draws', function() {
+      describe('any identical picks', function() {
+        it('should result in no winner', function() {
+          var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
+            player_1.picks(x);
+            player_2.picks(x);
+            return game.winner();
+          });
+          expect(drawGameResults).toEqual([null, null, null]);
+        });
+      });
+    });
 });
